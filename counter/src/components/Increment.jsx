@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { increment } from '../reducer/CounterSlice';
+import { increment, incrementAsync } from '../reducer/CounterSlice';
 
 function Increment() {
   const dispatch = useDispatch();
@@ -9,16 +9,16 @@ function Increment() {
     const randomValue = Math.floor(Math.random() * 10) + 1;
     dispatch(increment(randomValue));
   };
-  const handleAsyncIncrement = ()=>{
-    
-  }
+
+  const handleAsyncIncrement = () => {
+    dispatch(incrementAsync(1)); // Passer la quantité (amount) désirée en argument de incrementAsync
+  };
 
   return (
     <>
-     <button onClick={handleIncrement}>Increment</button>
-    <button onClick={handleAsyncIncrement}>Async Increment</button>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleAsyncIncrement}>Async Increment</button>
     </>
-   
   );
 }
 
