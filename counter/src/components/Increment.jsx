@@ -9,9 +9,16 @@ function Increment() {
     const randomValue = Math.floor(Math.random() * 10) + 1;
     dispatch(increment(randomValue));
   };
+  const handleAsyncIncrement = ()=>{
+    
+  }
 
   return (
-    <button onClick={handleIncrement}>Increment</button>
+    <>
+     <button onClick={handleIncrement}>Increment</button>
+    <button onClick={handleAsyncIncrement}>Async Increment</button>
+    </>
+   
   );
 }
 
