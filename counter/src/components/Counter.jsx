@@ -6,7 +6,7 @@ export default function Counter (){
     return(
         <>
         
-        <p>Counter Value: {counterValue}</p> 
+        <p>Counter Value: {counterValue} {counterValue % 2 === 0 ? 'Pair' : 'Impair'}</p> 
         <p>
         Incremented Value: {incrementedValue} - {incrementedValue % 2 === 0 ? 'Pair' : 'Impair'}
       </p> 
