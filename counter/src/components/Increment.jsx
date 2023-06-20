@@ -13,11 +13,11 @@ function Increment() {
   const handleAsyncIncrement = () => {
     dispatch(incrementAsync(1)); // Passer la quantité (amount) désirée en argument de incrementAsync
   };
-
+  
   return (
     <>
-      <button onClick={handleIncrement}>Increment</button>
-      <button onClick={handleAsyncIncrement}>Async Increment</button>
+      <button  onClick={handleIncrement}>Increment</button>
+      <button  onClick={handleAsyncIncrement}>Async Increment</button>
     </>
   );
 }
