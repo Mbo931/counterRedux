@@ -7,7 +7,7 @@ import './Navbar.css'
 
 
 
-function Navbar (props)  {
+function Navbar ({ isDarkMode, toggleMode })  {
   const user= useSelector((state)=>state.user
     )
     const dispatch= useDispatch()
@@ -35,7 +35,9 @@ function Navbar (props)  {
           
         </li>
         <li>
-            <DarkMode/>
+            <a href="#" onClick={toggleMode}>
+            {isDarkMode ? '🌕Light Mode' : '🌑Dark Mode'}
+          </a>
         </li>
       </ul>
     </nav>

@@ -37,18 +37,21 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  
+  background-color: #eab023;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin: 1.5em 0em;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #ffb700;
+    border-color: black;
 }
 button:focus,
 button:focus-visible {
@@ -66,4 +69,51 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+    .banPanier {
+      
+      border-bottom: solid black 1px;
+    }
+}
+
+
+/******Product********/
+
+
+/*****Profil*********/
+
+
+.form {
+  width: 35%;
+    margin: 8em 0em;
+    padding: 0em;
+    text-align: left;
+  
+}
+.formLabel{
+  margin:1em 0em;
+}
+
+/*****Panier*********/
+.banPanier{
+  max-width: 100%;
+  text-align: initial;
+  border-bottom: solid white 1px;
+}
+/*
+.addPanier{
+
+}
+*/
+.addBtn{
+  background-color: #ffb700;
+  color: #111112;
+  font-size: .75em;
+  
+}
+.quantity{
+  width: 2em;
+  margin:0em 1em;
+  color: #111112;
+  background-color: white;
+  border:none;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Product.css'
+import AddPanier from '../AddPanier/AddPanier';
 export default function Product ({product}) {
     return (
         <div className="product">
@@ -13,10 +14,12 @@ export default function Product ({product}) {
                 <p>
                     {product.description}
                 </p>
-                <p>
+                <h3> 
                     {product.price} €
-                </p>
+                </h3>
+                <AddPanier/>
             </div>
+            
         </div>
     )
 }

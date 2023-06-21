@@ -43,24 +43,28 @@ export default function Profil() {
 
   return (
     <>
+    <div className="form">
       <h2>Hi {user.firstname}</h2>
       <h3>Customize your profil here</h3>
       <form onSubmit={saveUser}>
         {formInfo.map((field) => (
-          <div key={field.name}>
-            <label htmlFor={field.name}>{field.label}:</label>
+          <div className="formLabel" key={field.name}>
+            <label htmlFor={field.name}>{field.label} : </label>
             <input
               type={field.type}
               name={field.name}
               id={field.name}
-              placeholder={formData[field.name]}
+              
               value={formData[field.name]}
               onChange={handleInputChange}
             />
           </div>
         ))}
-        <button type="submit">Save</button>
+        <button type="submit" className="buttonform">
+            Save
+        </button>
       </form>
+      </div>
     </>
   );
 }

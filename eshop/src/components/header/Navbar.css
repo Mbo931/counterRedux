@@ -25,3 +25,12 @@ header nav ul {
 header nav ul li {
     margin: 0 20px;
 }
+/* Styles pour le mode sombre */
+.dark-mode header {
+    background-color: #282828;
+    color: #aaaaaa;
+}
+
+.dark-mode header a {
+    color: #aaaaaa;
+}
