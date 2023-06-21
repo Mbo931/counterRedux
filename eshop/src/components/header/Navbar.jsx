@@ -1,34 +1,35 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import './Navbar.css'
 import DarkMode from '../DarkMode';
+import './Navbar.css'
+
 
 
 function Navbar (props)  {
-  const checkIsactive = ({ isActive }) => {
-    return {
-      display: "block",
-      margin: "1rem 0",
-      color: isActive ? "orange" : "",
-    };
-  };
+  const user= useSelector((state)=>state.user
+    )
+    const dispatch= useDispatch()
 
   return (
     <header>
-        <h1><NavLink style={checkIsactive} to="/">
+        <h1>
+            <NavLink  to="/">
             EZ Shopping
-          </NavLink></h1>  
+          </NavLink>
+        </h1>  
     <nav>      
       <ul>
         <li>
           
-             <NavLink style={checkIsactive} to="/profil">
-                👺 name lastname
+             <NavLink  to="/profil">
+                👺 {user.firstname} {user.lastname}
              </NavLink>
             
         </li>
         <li>
-         <NavLink style={checkIsactive} to="/panier">
+         <NavLink to="/panier">
             🛒 Items
          </NavLink>
           
