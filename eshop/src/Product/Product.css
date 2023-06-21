@@ -1,0 +1,15 @@
+img{
+    width: 150px;
+}
+.product{
+    display: flex;
+    width: 50%;
+    
+}
+.imageProduct{
+    margin: 0 2rem 0;
+}
+.flexwrap{
+    display: flex;
+    flex-wrap: wrap;
+}

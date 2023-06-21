@@ -1,6 +1,8 @@
-
+import React from 'react';
 import { NavLink } from "react-router-dom";
-import DarkMode from "../DarkMode";
+import './Navbar.css'
+import DarkMode from '../DarkMode';
+
 
 function Navbar (props)  {
   const checkIsactive = ({ isActive }) => {
@@ -12,10 +14,11 @@ function Navbar (props)  {
   };
 
   return (
-    <nav>
+    <header>
         <h1><NavLink style={checkIsactive} to="/">
             EZ Shopping
-          </NavLink></h1>
+          </NavLink></h1>  
+    <nav>      
       <ul>
         <li>
           
@@ -25,8 +28,8 @@ function Navbar (props)  {
             
         </li>
         <li>
-         <NavLink style={checkIsactive} to="/profil">
-            🛒 valueItem Item
+         <NavLink style={checkIsactive} to="/panier">
+            🛒 Items
          </NavLink>
           
         </li>
@@ -35,6 +38,7 @@ function Navbar (props)  {
         </li>
       </ul>
     </nav>
+    </header>
   );
 };
 
