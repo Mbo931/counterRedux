@@ -8,6 +8,7 @@ function ListProducts({ products }) {
       {products.map((product, index) => (
         <Product key={index} product={product}>
         </Product>
+        
       ))}
     </div>
   );
