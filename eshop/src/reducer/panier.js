@@ -1,48 +1,61 @@
-import { v4 as uuidv4 } from 'uuid';
+export const panierInit = [];
 
-export const panierInit = [
-  {
-    ref: uuidv4(),
-    quantity: 0
-  }
-];
+function sumValues(arr, propertyName) {
+  return arr.reduce((total, obj) => total + obj[propertyName], 0);
+}
+
+export const itemCounter = sumValues(panierInit, 'quantity');
 
 export const panierAction = {
   addItem: 'ADD_PANIER',
   removePanier: 'REMOVE_PANIER',
-  clearPanier: 'CLEAR_PANIER'
+  clearPanier: 'CLEAR_PANIER',
 };
 
-export const addToBasket = (payload) => {
+export const addToBasket = (product) => {
   return {
     type: panierAction.addItem,
-    payload: payload
+    payload: product,
   };
 };
 
-export const removeBasket = (payload) => {
+export const removeBasket = (product) => {
   return {
     type: panierAction.removePanier,
-    payload: payload
+    payload: product,
   };
 };
 
 export const clearBasket = () => {
   return {
-    type: panierAction.clearPanier
+    type: panierAction.clearPanier,
   };
 };
 
 export default function panierReducer(state = panierInit, action) {
   switch (action.type) {
     case panierAction.addItem:
-      return [...state, action.payload];
+      const existingItem = state.find((item) => item.id === action.payload.id);
+
+      if (existingItem) {
+        return state.map((item) =>
+          item.id === action.payload.id
+            ? {
+                ...item,
+                quantity: item.quantity + 1,
+              }
+            : item
+        );
+      } else {
+        return [...state, { ...action.payload, quantity: 1 }];
+      }
+
     case panierAction.removePanier:
-      // Ajoutez ici la logique pour supprimer un élément du panier
-      return state;
+      return state.filter((item) => item.id !== action.payload);
+
     case panierAction.clearPanier:
-      // Ajoutez ici la logique pour vider le panier
       return [];
+
     default:
       return state;
   }

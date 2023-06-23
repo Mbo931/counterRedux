@@ -1,32 +1,44 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-import { panierAction, addToBasket, panierInit } from '../reducer/panier';
+import { addToBasket, panierInit } from '../reducer/panier';
+import { createRef, useState } from 'react';
 
-export default function AddPanier() {
-  const idItem = useSelector((state) => state.ref);
+export default function AddPanier({ product }) {
+  const panier = useSelector((state) => state.panier);
   const dispatch = useDispatch();
+  const quantityRef = createRef();
 
   const saveBasket = (e) => {
     e.preventDefault();
-    const quantity = parseInt(e.target.elements.quantity.value); // Récupère la valeur du champ de formulaire
+    const quantity = Number(quantityRef.current.value);
 
-    const item = {
-      ref: idItem,
-      quantity: quantity
+    const article = {
+      id: product.id,
+      item: product,
+      quantity,
     };
 
-    dispatch(addToBasket(item)); // Dispatch l'action avec les données de l'item
-
-    console.log(panierInit);
+    dispatch(addToBasket(article));
+    console.log(panier)
   };
 
   return (
     <>
       <form className="addPanier" onSubmit={saveBasket}>
         Quantity:
-        <input className="quantity" type="number" name="quantity" id={idItem} min={1} step={1} defaultValue={1} required />
+        <input
+          ref={quantityRef}
+          className="quantity"
+          type="number"
+          name="quantity"
+          min={1}
+          step={1}
+          defaultValue={1}
+          required
+        />
         <br />
-        <button className="addBtn" type="submit">Add to Basket</button>
+        <button className="addBtn" type="submit">
+          Add to Basket
+        </button>
       </form>
     </>
   );

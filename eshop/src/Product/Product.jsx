@@ -17,7 +17,7 @@ export default function Product ({product}) {
                 <h3> 
                     {product.price} €
                 </h3>
-                <AddPanier/>
+                <AddPanier product={product} />
             </div>
             
         </div>

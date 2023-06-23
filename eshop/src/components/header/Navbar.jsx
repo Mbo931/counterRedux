@@ -2,14 +2,13 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import './Navbar.css'
-import DarkMode from '../DarkMode';
-import './Navbar.css'
 
 
 
 function Navbar ({ isDarkMode, toggleMode })  {
-  const user= useSelector((state)=>state.user
-    )
+  const user= useSelector((state)=>state.user)
+  const panier= useSelector((state)=>state.panier)
+    
     const dispatch= useDispatch()
 
   return (
@@ -30,7 +29,7 @@ function Navbar ({ isDarkMode, toggleMode })  {
         </li>
         <li>
          <NavLink to="/panier">
-            🛒 Items
+            🛒 {panier.length} Items
          </NavLink>
           
         </li>
